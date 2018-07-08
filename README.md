@@ -86,7 +86,6 @@ $ git clone https://github.com/Exubient/AUSG_KakaoBot
     from django.shortcuts import render, redirect
 
     # Create your views here.
-
     def main(request):
         return render(request, "main.html")
     ```
@@ -104,21 +103,50 @@ $ git clone https://github.com/Exubient/AUSG_KakaoBot
     ```
 
 * blog/settings.py
-해당 코드는 RDS/S3 생성후 DB/static store 연결 부분입니다
+해당 코드는 RDS 생성후 production DB 연결 부분입니다
     ``` amathon/settings.py
-    ##DATABASES = {
-    #'default': {
-    #    'ENGINE': 'django.db.backends.postgresql_psycopg2',
-    #    'NAME': 'amathon',
-    #    'USER': 'root',
-    #    'PASSWORD': os.environ['amathon'], **비밀번호는 환경변수로
-    #    'HOST' : '<<<<<해당 HOST endpoing>>>>',
-    #    'PORT': '5432', **default port입니다
-    #    }
-    #}
+    #DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'amathon',
+        'USER': 'root',
+        'PASSWORD': os.environ['amathon'], #비밀번호는 환경변수로
+        'HOST' : '<<<<<해당 HOST endpoing>>>>',
+        'PORT': '5432', #default port입니다
+        }
+    }
     ```
-    
- 
-    
-    
 
+* blog/settings.py
+해당 코드는 RS3 생성후 static store 연결 부분입니다
+https://www.caktusgroup.com/blog/2014/11/10/Using-Amazon-S3-to-store-your-Django-sites-static-and-media-files/
+    ``` amathon/settings.py
+    INSTALLED_APPS= [
+    ...
+    'storages'
+    ]
+    STATIC_URL = '/static/'
+    AWS_ACCESS_KEY_ID = os.environ['AK'] #환경변수로 사용
+    AWS_SECRET_ACCESS_KEY = os.environ['SK'] #환경변수로 사용
+    AWS_STORAGE_BUCKET_NAME = '<<<<bucket name>>>>'
+    AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
+    AWS_S3_OBJECT_PARAMETERS = {
+        'CacheControl': 'max-age=86400',
+    }
+    AWS_LOCATION = 'static'
+
+    STATICFILES_DIRS = [
+        os.path.join(BASE_DIR, 'blog/static'),
+    ]
+    STATIC_URL = 'https://%s/%s/' % (AWS_S3_CUSTOM_DOMAIN, AWS_LOCATION)
+    STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+    STATICFILES_LOCATION = 'static'
+
+
+    ```
+    ``` bash
+    #cloud9에서는 권한 문제가 있어서 실습 불가능/ Mac, Linux환경에서 가능(sudo 권한) 
+    $ pip install boto3 django-storages
+    #collecstatic 사용하여 S3에 업로드
+    $ python manage.py collectstatic 
+    ```
