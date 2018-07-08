@@ -119,7 +119,7 @@ AWS Cloud9은 인터넷만 연결되어 있다면 웹 브라우저상으로 코�
     ```
 
 * blog/settings.py
-해당 코드는 RS3 생성후 static store 연결 부분입니다
+해당 코드는 S3 생성후 static store 연결 부분입니다
 https://www.caktusgroup.com/blog/2014/11/10/Using-Amazon-S3-to-store-your-Django-sites-static-and-media-files/
     ``` amathon/settings.py
     INSTALLED_APPS= [
