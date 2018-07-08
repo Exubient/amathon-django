@@ -32,9 +32,6 @@ AWS Cloud9은 인터넷만 연결되어 있다면 웹 브라우저상으로 코�
 * Cost-saving setting은 4시간 후 설정
 * Create! 하면 조금 시간이 걸립니다...
     * 이때, 자동으로 EC2가 생성됩니다.
-```bash
-$ git clone https://github.com/Exubient/AUSG_KakaoBot
-```
 
 ## AWS Elastic IP (고정아이피 할당)
 * [Ctrl + 마우스 왼쪽 버튼 클릭!](https://aws.amazon.com/ko/)
@@ -116,6 +113,10 @@ $ git clone https://github.com/Exubient/AUSG_KakaoBot
         }
     }
     ```
+    ``` bash
+    $ python manage.py makemigrations #if there was any change in models.py file
+    $ python manage.py migrate
+    ```
 
 * blog/settings.py
 해당 코드는 RS3 생성후 static store 연결 부분입니다
@@ -135,15 +136,12 @@ https://www.caktusgroup.com/blog/2014/11/10/Using-Amazon-S3-to-store-your-Django
     }
     AWS_LOCATION = 'static'
 
-    STATICFILES_DIRS = [
-        os.path.join(BASE_DIR, 'blog/static'),
-    ]
+    STATICFILES_DIRS = [ os.path.join(BASE_DIR, 'blog/static')]
     STATIC_URL = 'https://%s/%s/' % (AWS_S3_CUSTOM_DOMAIN, AWS_LOCATION)
     STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
     STATICFILES_LOCATION = 'static'
-
-
     ```
+    
     ``` bash
     #cloud9에서는 권한 문제가 있어서 실습 불가능/ Mac, Linux환경에서 가능(sudo 권한) 
     $ pip install boto3 django-storages
