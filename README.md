@@ -63,3 +63,62 @@ $ git clone https://github.com/Exubient/AUSG_KakaoBot
     ```bash
     $ django-admin startproject amathon
     ```
+    
+* App 생성 및 templates폴더 생성
+    ```bash
+    $ django-admin startapp blog
+    $ cd blog
+    $ mkdir templates
+    ```
+    templates/main.html에 html 적용 -> hello world정도
+    
+* Allowed Host에 해당 IP 추가/ INSTALLED_APPS 앱 추가
+    ```amathon/settings.py
+    ALLOWED_HOSTS = ['*'] or ALLOWED_HOSTS['<<<<해당 public IP >>>>>>']
+    
+    INSTALLED_APPS = [
+    ...
+    'blog'
+    ]
+    ```
+* blog/views.py
+    ```
+    from django.shortcuts import render, redirect
+
+    # Create your views here.
+
+    def main(request):
+        return render(request, "main.html")
+    ```
+
+* amathon/urls.py
+    ```
+    from django.contrib import admin
+    from django.urls import path
+    from django.conf.urls import url
+    from blog import views
+    urlpatterns = [
+        path('admin/', admin.site.urls),
+        url(r'^', views.main)
+        ]
+    ```
+
+* blog/settings.py
+해당 코드는 RDS/S3 생성후 DB/static store 연결 부분입니다
+    ``` amathon/settings.py
+    ##DATABASES = {
+    #'default': {
+    #    'ENGINE': 'django.db.backends.postgresql_psycopg2',
+    #    'NAME': 'amathon',
+    #    'USER': 'root',
+    #    'PASSWORD': os.environ['amathon'], **비밀번호는 환경변수로
+    #    'HOST' : '<<<<<해당 HOST endpoing>>>>',
+    #    'PORT': '5432', **default port입니다
+    #    }
+    #}
+    ```
+    
+ 
+    
+    
+
