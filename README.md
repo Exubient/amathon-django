@@ -155,7 +155,7 @@ templates
     <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
-                <a class="navbar-brand" href="http://127.0.0.1:8000/">Back to main</a>
+                <a class="navbar-brand" href="http://127.0.0.1:8080/">Back to main</a>
             </div>
         </div>
     </div>
@@ -170,7 +170,7 @@ templates
   ```
 
 * blog/settings.py
-해당 코드는 RDS 생성후 production DB 연결 부분입니다
+해당 코드는 RDS 생성후 DB 연결 부분입니다
     ``` amathon/settings.py
     #DATABASES = {
     'default': {
@@ -183,13 +183,14 @@ templates
         }
     }
     ```
+    
     ``` bash
     $ python manage.py makemigrations #if there was any change in models.py file
     $ python manage.py migrate
     ```
 
 * blog/settings.py
-해당 코드는 S3 생성후 static store 연결 부분입니다
+해당 코드는 S3 생성/연결 부분입니다
 https://www.caktusgroup.com/blog/2014/11/10/Using-Amazon-S3-to-store-your-Django-sites-static-and-media-files/
     ``` amathon/settings.py
     INSTALLED_APPS= [
@@ -210,6 +211,11 @@ https://www.caktusgroup.com/blog/2014/11/10/Using-Amazon-S3-to-store-your-Django
     STATIC_URL = 'https://%s/%s/' % (AWS_S3_CUSTOM_DOMAIN, AWS_LOCATION)
     STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
     STATICFILES_LOCATION = 'static'
+    ```
+    ```blog/templates/main.html
+    {% load static %} # 파일 line1에 추가
+    
+    <img src="{% static 'img/<filename>.png' %}"/> 
     ```
     
     ``` bash
