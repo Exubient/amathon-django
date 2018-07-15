@@ -30,6 +30,12 @@ AWS Cloud9은 인터넷만 연결되어 있다면 웹 브라우저상으로 코�
     * 이때, 자동으로 EC2가 생성됩니다.
 
 ## Version2: vi/vim 사용이 익숙하고, Full 실습 희망(RDS연동 가능, S3연동 가능)
+* Mac/Linux User
+** 그냥 terminal로 진행
+* Windows User
+** https://git-scm.com/downloads
+** Git Bash 설치 후 진행
+
 ## EC2
 * AWS Console -> Service -> EC2 검색후 Launch Instance
 * Free Tier가능한 Ubuntu 16.04 버전으로 서버 Launch
@@ -61,7 +67,7 @@ Python3.6 Download
 ```
 
 ## Django
-#### C9에서는 파일을 클릭하면 코드 수정이 가능합니다. ***
+#### C9에서는 파일을 클릭하면 코드 수정이 가능합니다. Shell에서 하는 분들은 알아서 사용***
 * pip version 확인 및 freeze
     ```bash
     $ pip --version
@@ -81,6 +87,15 @@ Python3.6 Download
     $ mkdir templates
     ```
     templates/main.html에 html 적용 -> hello world정도
+
+* blog/views.py
+    ```
+    from django.shortcuts import render, redirect
+
+    # Create your views here.
+    def main(request):
+        return render(request, "main.html")
+    ```    
     
 * Allowed Host에 해당 IP 추가/ INSTALLED_APPS 앱 추가
     ```amathon/settings.py
@@ -91,14 +106,7 @@ Python3.6 Download
     'blog'
     ]
     ```
-* blog/views.py
-    ```
-    from django.shortcuts import render, redirect
 
-    # Create your views here.
-    def main(request):
-        return render(request, "main.html")
-    ```
 
 * amathon/urls.py
     ```
@@ -111,7 +119,11 @@ Python3.6 Download
         url(r'^', views.main)
         ]
     ```
-
+   TEST CODE
+    ```
+    python3 manage.py migrate
+    python3 manage.py runserver 0.0.0.0:8080
+    ```
 * blog/templates/main.html
 templates 
     ```
@@ -160,7 +172,7 @@ templates
 
               <table>
   ```
-
+* pip install psycopg2
 * blog/settings.py
 해당 코드는 RDS 생성후 DB 연결 부분입니다
     ``` amathon/settings.py
@@ -183,6 +195,14 @@ templates
 
 * blog/settings.py
 해당 코드는 S3 생성/연결 부분입니다
+* blog/static/img에 디렉토리 생성
+* S3를 통해 보여주고  싶은 이미지 blog/static/img에 옮기기
+* 이미지 downloadlink를 chrome download link로 찾아서 wget <<link>>
+* exmaple link) 설현 무대인사 이미지 
+https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/170917_AOA_%EC%84%A4%ED%98%84_%EC%82%B4%EC%9D%B8%EC%9E%90%EC%9D%98_%EA%B8%B0%EC%96%B5%EB%B2%95_%EB%AC%B4%EB%8C%80%EC%9D%B8%EC%82%AC_04.jpg/250px-170917_AOA_%EC%84%A4%ED%98%84_%EC%82%B4%EC%9D%B8%EC%9E%90%EC%9D%98_%EA%B8%B0%EC%96%B5%EB%B2%95_%EB%AC%B4%EB%8C%80%EC%9D%B8%EC%82%AC_04.jpg
+
+* pip install django-storages
+* pip install boto3
 https://www.caktusgroup.com/blog/2014/11/10/Using-Amazon-S3-to-store-your-Django-sites-static-and-media-files/
     ``` amathon/settings.py
     INSTALLED_APPS= [
