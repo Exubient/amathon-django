@@ -54,7 +54,7 @@ AWS Cloud9은 인터넷만 연결되어 있다면 웹 브라우저상으로 코�
 * Inbound -> Edit  -> Add Rules Button -> custom -> 8000, 8080 열기 -> save
 
 <직접 shell에 개발하는 분들>
-Python3.6 Download
+* Python3.6 Download
     ``` bash
         #install python3
         sudo add-apt-repository ppa:jonathonf/python-3.6
@@ -63,7 +63,7 @@ Python3.6 Download
 
         #install Django
         sudo apt install python3-pip -y
-        pip3 install Django
+        pip3 install Django 
     ```
 
 ## Django
