@@ -43,12 +43,10 @@ AWS Cloud9은 인터넷만 연결되어 있다면 웹 브라우저상으로 코�
 * ssh -i <pem키 위치> ubunutu@<public ip>로 f 접근
 
 ## AWS Elastic IP (고정아이피 할당)
-* [Ctrl + 마우스 왼쪽 버튼 클릭!](https://aws.amazon.com/ko/)
 * 내계정 -> AWS Management Console-> EC2
 * NETWORK & SECURITY탭 -> Elastic Ips -> Allocate new address -> Allocates -> 작업-> 주소연결
 
 ## AWS Inbound 열기
-* [Ctrl + 마우스 왼쪽 버튼 클릭!](https://aws.amazon.com/ko/)
 * 콘솔에 접근  -> EC2 -> NETWORK & SECURITY탭
 * Security Groups
 * Inbound -> Edit  -> Add Rules Button -> custom -> 8000, 8080 열기 -> save
@@ -62,8 +60,8 @@ AWS Cloud9은 인터넷만 연결되어 있다면 웹 브라우저상으로 코�
     $ sudo apt-get install python3.6
 
     #install Django
-    $ sudo apt install python3-pip -y
-    $ pip3 install Django 
+    $ sudo apt install python-pip -y
+    $ pip install Django 
     ```
 
 ## Django
