@@ -116,7 +116,7 @@ Python3.6 Download
     from blog import views
     urlpatterns = [
         path('admin/', admin.site.urls),
-        url(r'^', views.main)
+        url(r'^$', views.main)
         ]
     ```
    TEST CODE
