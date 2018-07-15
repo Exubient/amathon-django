@@ -2,7 +2,6 @@
 ###### Amathon 사전 교육 세션
 
 ## AWS Free Tier 가입하기
-![스크린샷, 2018-01-10 20-23-00](https://i.imgur.com/MTm3XV4.png)
 
 **Ctrl 누르고 왼쪽클릭!**
 **https://aws.amazon.com/free/**
@@ -14,7 +13,6 @@
 
 ## Version1: vi/vim 사용이 익숙하지 않고, 간단한 실습 희망(RDS연동 가능, S3연동 불가능)
 ## C9
-![c9](https://i.imgur.com/rzZMKYN.png)
 
 AWS Cloud9은 인터넷만 연결되어 있다면 웹 브라우저상으로 코드 작성 및 실행, 디버깅을 할 수 있는 클라우드 기반의 통합 개발 환경(IDE)를 의미합니다.
 **Ctrl + 왼쪽마우스 클릭!**
@@ -22,15 +20,11 @@ AWS Cloud9은 인터넷만 연결되어 있다면 웹 브라우저상으로 코�
 <br>
 
 * 싱가폴 리전 선택
-![스크린샷, 2018-01-10 20-35-15](https://i.imgur.com/C4v5zVW.png)
 
 * AWS Cloud9 시작하기 버튼 --> 클릭
-![스크린샷, 2018-01-10 20-38-12](https://i.imgur.com/jDNs9SR.png)
 * 지역은 싱가폴로 선택을 하도록 하겠습니다.
-![스크린샷, 2018-01-10 20-42-17](https://i.imgur.com/G1HBFzt.png)
 * Create Environment 버튼 --> 클릭
 * Create a new instance for environment (EC2 설정) --> Instance Type은 t2.micro설정
-![스크린샷, 2018-01-10 20-49-26](https://i.imgur.com/5ivNdsk.png)
 * Cost-saving setting은 4시간 후 설정
 * Create! 하면 조금 시간이 걸립니다...
     * 이때, 자동으로 EC2가 생성됩니다.
@@ -52,8 +46,6 @@ ssh -i <pem키 위치> ubunutu@<public ip>로 shell 접근
 * 콘솔에 접근  -> EC2 -> NETWORK & SECURITY탭
 * Security Groups
 * Inbound -> Edit  -> Add Rules Button -> custom -> 8000, 8080 열기 -> save
-![inbound](https://i.imgur.com/MLrtqy2.png)
-![스크린샷, 2018-01-10 21-30-51](https://i.imgur.com/1T7SqP1.png)
 
 <직접 shell에 개발하는 분들>
 Python3.6 Download
