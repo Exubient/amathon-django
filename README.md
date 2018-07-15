@@ -30,11 +30,11 @@ AWS Cloud9은 인터넷만 연결되어 있다면 웹 브라우저상으로 코�
     * 이때, 자동으로 EC2가 생성됩니다.
 
 ## Version2: vi/vim 사용이 익숙하고, Full 실습 희망(RDS연동 가능, S3연동 가능)
-* Mac/Linux User
-** 그냥 terminal로 진행
-* Windows User
-** https://git-scm.com/downloads
-** Git Bash 설치 후 진행
+* Mac/Linux User -> 그냥 terminal로 진행
+* Windows User -> Git Bash 설치 후 진행
+    ```
+    https://git-scm.com/downloads
+    ```
 
 ## EC2
 * AWS Console -> Service -> EC2 검색후 Launch Instance
@@ -67,7 +67,7 @@ AWS Cloud9은 인터넷만 연결되어 있다면 웹 브라우저상으로 코�
     ```
 
 ## Django
-#### C9에서는 파일을 클릭하면 코드 수정이 가능합니다. Shell에서 하는 분들은 알아서 사용***
+#### C9에서는 파일을 클릭하면 코드 수정이 가능합니다. Shell에서 하는 분들은 알아서 사용
 * pip version 확인 및 freeze
     ```bash
     $ pip --version
