@@ -55,16 +55,16 @@ AWS Cloud9은 인터넷만 연결되어 있다면 웹 브라우저상으로 코�
 
 <직접 shell에 개발하는 분들>
 Python3.6 Download
-``` bash
-    #install python3
-    sudo add-apt-repository ppa:jonathonf/python-3.6
-    sudo apt-get update
-    sudo apt-get install python3.6
-    
-    #install Django
-    sudo apt install python3-pip -y
-    pip3 install Django
-```
+    ``` bash
+        #install python3
+        sudo add-apt-repository ppa:jonathonf/python-3.6
+        sudo apt-get update
+        sudo apt-get install python3.6
+
+        #install Django
+        sudo apt install python3-pip -y
+        pip3 install Django
+    ```
 
 ## Django
 #### C9에서는 파일을 클릭하면 코드 수정이 가능합니다. Shell에서 하는 분들은 알아서 사용***
@@ -196,16 +196,16 @@ templates
 
 해당 코드는 S3 생성/연결 부분입니다
 * blog/static/img에 디렉토리 생성
-```bash
-    mkdir static
-    cd static
-    mkdit img
-```
+    ```bash
+        mkdir static
+        cd static
+        mkdit img
+    ```
 * S3를 통해 보여주고  싶은 이미지 blog/static/img에 옮기기 -> 이미지 downloadlink를 chrome download link로 찾아서 wget <<link>>
 * exmaple link) 설현 무대인사 이미지 
-```
-https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/170917_AOA_%EC%84%A4%ED%98%84_%EC%82%B4%EC%9D%B8%EC%9E%90%EC%9D%98_%EA%B8%B0%EC%96%B5%EB%B2%95_%EB%AC%B4%EB%8C%80%EC%9D%B8%EC%82%AC_04.jpg/250px-170917_AOA_%EC%84%A4%ED%98%84_%EC%82%B4%EC%9D%B8%EC%9E%90%EC%9D%98_%EA%B8%B0%EC%96%B5%EB%B2%95_%EB%AC%B4%EB%8C%80%EC%9D%B8%EC%82%AC_04.jpg
-```
+    ```
+    https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/170917_AOA_%EC%84%A4%ED%98%84_%EC%82%B4%EC%9D%B8%EC%9E%90%EC%9D%98_%EA%B8%B0%EC%96%B5%EB%B2%95_%EB%AC%B4%EB%8C%80%EC%9D%B8%EC%82%AC_04.jpg/250px-170917_AOA_%EC%84%A4%ED%98%84_%EC%82%B4%EC%9D%B8%EC%9E%90%EC%9D%98_%EA%B8%B0%EC%96%B5%EB%B2%95_%EB%AC%B4%EB%8C%80%EC%9D%B8%EC%82%AC_04.jpg
+    ```
 * 실습 참고 링크
     ```
     https://www.caktusgroup.com/blog/2014/11/10/Using-Amazon-S3-to-store-your-Django-sites-static-and-media-files/
