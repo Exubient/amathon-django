@@ -65,8 +65,8 @@ Python3.6 Download
 * pip version 확인 및 freeze
     ```bash
     $ pip --version
-    $ python --version
-    $ pip freeze
+    $ python3 --version
+    $ pip freeze #무슨 package가 있는지 확인가능
     ```
     
 * Django project 시작
@@ -206,7 +206,6 @@ https://www.caktusgroup.com/blog/2014/11/10/Using-Amazon-S3-to-store-your-Django
     ```
     ```blog/templates/main.html
     {% load static %} # 파일 line1에 추가
-    
     <img src="{% static 'img/<filename>.png' %}"/> 
     ```
     
