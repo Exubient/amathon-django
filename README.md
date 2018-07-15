@@ -11,6 +11,8 @@
     - 이때, 해외결제가 되는 신용카드 혹은 체크카드가 있어야 합니다.
     - 회원가입을 하면 카드 확인용으로 $1가 빠져나갑니다. (나중에 돈은 다시 돌려줍니다.)
     - 모든 가입 정보들은 **영문** 으로 작성되어야 합니다.
+
+# Version1: VI/VIM 사용이 익숙하지 않고, 간단한 실습 희망(RDS연동 가능, S3연동 불가능)
 ## C9
 ![c9](https://i.imgur.com/rzZMKYN.png)
 
@@ -33,6 +35,13 @@ AWS Cloud9은 인터넷만 연결되어 있다면 웹 브라우저상으로 코�
 * Create! 하면 조금 시간이 걸립니다...
     * 이때, 자동으로 EC2가 생성됩니다.
 
+# Version2: VI/VIM 사용이 익숙하고, Full 실습 희망(RDS연동 가능, S3연동 가능)
+##EC2
+AWS Console -> Service -> EC2 검색후 Launch Instance
+Free Tier가능한 Ubuntu 16.04 버전으로 서버 Launch
+Create Key Chain -> 적당한 위치에 저장
+ssh -i <pem키 위치> ubunutu@<public ip>로 shell 접근
+
 ## AWS Elastic IP (고정아이피 할당)
 * [Ctrl + 마우스 왼쪽 버튼 클릭!](https://aws.amazon.com/ko/)
 * 내계정 -> AWS Management Console-> EC2
@@ -46,9 +55,21 @@ AWS Cloud9은 인터넷만 연결되어 있다면 웹 브라우저상으로 코�
 ![inbound](https://i.imgur.com/MLrtqy2.png)
 ![스크린샷, 2018-01-10 21-30-51](https://i.imgur.com/1T7SqP1.png)
 
+<직접 shell에 개발하는 분들>
+Python3.6 Download
+``` bash
+    #install python3
+    sudo add-apt-repository ppa:jonathonf/python-3.6
+    sudo apt-get update
+    sudo apt-get install python3.6
+    
+    #install Django
+    sudo apt install python3-pip -y
+    pip3 install Django
+```
 
 ## Django
-#### ***Cloud 9 환경에서 개발은 굉장히 비효율적입니다. 세션의 특성상 환경을 통일하고, Django 기본 세팅 및 AWS 서비스 연동 강좌입니다***
+#### C9에서는 파일을 클릭하면 코드 수정이 가능합니다. ***
 * pip version 확인 및 freeze
     ```bash
     $ pip --version
@@ -98,6 +119,55 @@ AWS Cloud9은 인터넷만 연결되어 있다면 웹 브라우저상으로 코�
         url(r'^', views.main)
         ]
     ```
+
+* blog/templates/main.html
+templates 
+    ```
+    <!doctype html>
+    <html>
+    <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum- scale=1.0,maximum-scale=1.0,user-scalable=no" />
+    <title>Amathon Blog</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+    <style>
+    body {
+        padding-top: 60px;
+    }
+    html {
+      position: relative;
+      min-height: 100%;
+    }
+    body {
+      margin-bottom: 60px;
+    }
+    .footer {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      height: 60px;
+      background-color: #f5f5f5;
+    }
+    </style>
+    </head>
+    <body>
+
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="http://127.0.0.1:8000/">Back to main</a>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="jumbotron">
+            <h1>Amathon Blog</h1>
+            <p>CONTENT</p>
+                <li>this are contents of list of comments!</li>
+              <ul>
+
+              <table>
+  ```
 
 * blog/settings.py
 해당 코드는 RDS 생성후 production DB 연결 부분입니다
