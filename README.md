@@ -40,7 +40,7 @@ AWS Cloud9은 인터넷만 연결되어 있다면 웹 브라우저상으로 코�
 * AWS Console -> Service -> EC2 검색후 Launch Instance
 * Free Tier가능한 Ubuntu 16.04 버전으로 서버 Launch
 * Create Key Chain -> 적당한 위치에 저장
-* ssh -i <pem키 위치> ubunutu@<public ip>로 shell 접근
+* ssh -i <pem키 위치> ubunutu@<public ip>로 f 접근
 
 ## AWS Elastic IP (고정아이피 할당)
 * [Ctrl + 마우스 왼쪽 버튼 클릭!](https://aws.amazon.com/ko/)
@@ -196,9 +196,13 @@ templates
 
 해당 코드는 S3 생성/연결 부분입니다
 * blog/static/img에 디렉토리 생성
-* S3를 통해 보여주고  싶은 이미지 blog/static/img에 옮기기
-** 이미지 downloadlink를 chrome download link로 찾아서 wget <<link>>
-** exmaple link) 설현 무대인사 이미지 
+```bash
+    mkdir static
+    cd static
+    mkdit img
+```
+* S3를 통해 보여주고  싶은 이미지 blog/static/img에 옮기기 -> 이미지 downloadlink를 chrome download link로 찾아서 wget <<link>>
+* exmaple link) 설현 무대인사 이미지 
 ```
 https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/170917_AOA_%EC%84%A4%ED%98%84_%EC%82%B4%EC%9D%B8%EC%9E%90%EC%9D%98_%EA%B8%B0%EC%96%B5%EB%B2%95_%EB%AC%B4%EB%8C%80%EC%9D%B8%EC%82%AC_04.jpg/250px-170917_AOA_%EC%84%A4%ED%98%84_%EC%82%B4%EC%9D%B8%EC%9E%90%EC%9D%98_%EA%B8%B0%EC%96%B5%EB%B2%95_%EB%AC%B4%EB%8C%80%EC%9D%B8%EC%82%AC_04.jpg
 ```
