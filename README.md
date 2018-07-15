@@ -31,10 +31,10 @@ AWS Cloud9은 인터넷만 연결되어 있다면 웹 브라우저상으로 코�
 
 ## Version2: vi/vim 사용이 익숙하고, Full 실습 희망(RDS연동 가능, S3연동 가능)
 ##EC2
-AWS Console -> Service -> EC2 검색후 Launch Instance
-Free Tier가능한 Ubuntu 16.04 버전으로 서버 Launch
-Create Key Chain -> 적당한 위치에 저장
-ssh -i <pem키 위치> ubunutu@<public ip>로 shell 접근
+* AWS Console -> Service -> EC2 검색후 Launch Instance
+* Free Tier가능한 Ubuntu 16.04 버전으로 서버 Launch
+* Create Key Chain -> 적당한 위치에 저장
+* ssh -i <pem키 위치> ubunutu@<public ip>로 shell 접근
 
 ## AWS Elastic IP (고정아이피 할당)
 * [Ctrl + 마우스 왼쪽 버튼 클릭!](https://aws.amazon.com/ko/)
