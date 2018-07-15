@@ -56,14 +56,14 @@ AWS Cloud9은 인터넷만 연결되어 있다면 웹 브라우저상으로 코�
 <직접 shell에 개발하는 분들>
 * Python3.6 Download
     ``` bash
-        #install python3
-        sudo add-apt-repository ppa:jonathonf/python-3.6
-        sudo apt-get update
-        sudo apt-get install python3.6
+    #install python3
+    $ sudo add-apt-repository ppa:jonathonf/python-3.6
+    $ sudo apt-get update
+    $ sudo apt-get install python3.6
 
-        #install Django
-        sudo apt install python3-pip -y
-        pip3 install Django 
+    #install Django
+    $ sudo apt install python3-pip -y
+    $ pip3 install Django 
     ```
 
 ## Django
@@ -121,8 +121,8 @@ AWS Cloud9은 인터넷만 연결되어 있다면 웹 브라우저상으로 코�
     ```
    TEST CODE
     ```
-    python3 manage.py migrate
-    python3 manage.py runserver 0.0.0.0:8080
+    $ python3 manage.py migrate
+    $ python3 manage.py runserver 0.0.0.0:8080
     ```
 * blog/templates/main.html
 templates 
@@ -197,9 +197,9 @@ templates
 해당 코드는 S3 생성/연결 부분입니다
 * blog/static/img에 디렉토리 생성
     ```bash
-        mkdir static
-        cd static
-        mkdit img
+    $ mkdir static
+    $ cd static
+    $ mkdir img
     ```
 * S3를 통해 보여주고  싶은 이미지 blog/static/img에 옮기기 -> 이미지 downloadlink를 chrome download link로 찾아서 wget <<link>>
 * exmaple link) 설현 무대인사 이미지 
