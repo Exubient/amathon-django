@@ -229,7 +229,7 @@ templates
     STATICFILES_LOCATION = 'static'
     ```
 * blog/templates/main.html
-    ```
+    ```blog/templates/main.html
     {% load static %} # 파일 line1에 추가
     <img src="{% static 'img/<filename>.png' %}"/> 
     ```
