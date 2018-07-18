@@ -228,11 +228,12 @@ templates
     STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
     STATICFILES_LOCATION = 'static'
     ```
-    ```blog/templates/main.html
+* blog/templates/main.html
+    ```
     {% load static %} # 파일 line1에 추가
     <img src="{% static 'img/<filename>.png' %}"/> 
     ```
-    
+* bash
     ``` bash
     #cloud9에서는 권한 문제가 있어서 실습 불가능/ Mac, Linux환경에서 가능(sudo 권한) 
     $ pip install boto3 django-storages
