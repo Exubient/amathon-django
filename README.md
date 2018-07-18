@@ -11,7 +11,7 @@
     - 회원가입을 하면 카드 확인용으로 $1가 빠져나갑니다. (나중에 돈은 다시 돌려줍니다.)
     - 모든 가입 정보들은 **영문** 으로 작성되어야 합니다.
 
-## Version1: vi/vim 사용이 익숙하지 않고, 간단한 실습 희망(RDS연동 가능, S3연동 불가능)
+## Version1: vi/vim 사용이 익숙하지 않고, 간단한 실습 희망
 ## C9
 
 AWS Cloud9은 인터넷만 연결되어 있다면 웹 브라우저상으로 코드 작성 및 실행, 디버깅을 할 수 있는 클라우드 기반의 통합 개발 환경(IDE)를 의미합니다.
@@ -29,7 +29,7 @@ AWS Cloud9은 인터넷만 연결되어 있다면 웹 브라우저상으로 코�
 * Create! 하면 조금 시간이 걸립니다...
     * 이때, 자동으로 EC2가 생성됩니다.
 
-## Version2: vi/vim 사용이 익숙하고, Full 실습 희망(RDS연동 가능, S3연동 가능)
+## Version2: vi/vim 사용이 익숙하고, Full 실습 희망    
 * Mac/Linux User -> 그냥 terminal로 진행
 * Windows User -> Git Bash 설치 후 진행
     ```
@@ -60,8 +60,8 @@ AWS Cloud9은 인터넷만 연결되어 있다면 웹 브라우저상으로 코�
     $ sudo apt-get install python3.6
 
     #install Django
-    $ sudo apt install python-pip -y
-    $ pip install Django 
+    $ sudo apt install python3-pip -y
+    $ pip3 install Django 
     ```
 
 ## Django
@@ -87,7 +87,7 @@ AWS Cloud9은 인터넷만 연결되어 있다면 웹 브라우저상으로 코�
     templates/main.html에 html 적용 -> hello world정도
 
 * blog/views.py
-    ```
+    ```blog/views.py
     from django.shortcuts import render, redirect
 
     # Create your views here.
@@ -95,7 +95,7 @@ AWS Cloud9은 인터넷만 연결되어 있다면 웹 브라우저상으로 코�
         return render(request, "main.html")
     ```    
     
-* Allowed Host에 해당 IP 추가/ INSTALLED_APPS 앱 추가
+* amathon/settings.py: Allowed Host에 해당 IP 추가/ INSTALLED_APPS 앱 추가
     ```amathon/settings.py
     ALLOWED_HOSTS = ['*'] or ALLOWED_HOSTS['<<<<해당 public IP >>>>>>']
     
@@ -107,7 +107,7 @@ AWS Cloud9은 인터넷만 연결되어 있다면 웹 브라우저상으로 코�
 
 
 * amathon/urls.py
-    ```
+    ```amathon/urls.py
     from django.contrib import admin
     from django.urls import path
     from django.conf.urls import url
@@ -170,7 +170,10 @@ templates
 
               <table>
   ```
-* pip install psycopg2
+* curl -O https://bootstrap.pypa.io/get-pip.py
+* python3 get-pip.py --user
+* sudo pip3 install psycopg2
+
 * blog/settings.py
 해당 코드는 RDS 생성후 DB 연결 부분입니다
     ``` amathon/settings.py
@@ -187,8 +190,8 @@ templates
     ```
     
     ``` bash
-    $ python manage.py makemigrations #if there was any change in models.py file
-    $ python manage.py migrate
+    $ python3 manage.py makemigrations #if there was any change in models.py file
+    $ python3 manage.py migrate
     ```
 
 
@@ -213,6 +216,7 @@ templates
     ...
     'storages'
     ]
+    
     STATIC_URL = '/static/'
     AWS_ACCESS_KEY_ID = os.environ['AK'] #환경변수로 사용
     AWS_SECRET_ACCESS_KEY = os.environ['SK'] #환경변수로 사용
@@ -236,7 +240,7 @@ templates
 * bash
     ``` bash
     #cloud9에서는 권한 문제가 있어서 실습 불가능/ Mac, Linux환경에서 가능(sudo 권한) 
-    $ pip install boto3 django-storages
+    $ pip3 install boto3 django-storages
     #collecstatic 사용하여 S3에 업로드
-    $ python manage.py collectstatic 
+    $ python3 manage.py collectstatic 
     ```
