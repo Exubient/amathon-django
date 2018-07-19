@@ -59,7 +59,7 @@ AWS Cloud9은 인터넷만 연결되어 있다면 웹 브라우저상으로 코�
     $ sudo apt-get update
     $ sudo apt-get install python3.6
 
-    #install Django
+    #install pip3
     $ sudo apt install python3-pip -y
     $ pip3 install Django 
     ```
